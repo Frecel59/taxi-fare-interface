@@ -1,11 +1,11 @@
-let taxiFareApiUrl = 'http://localhost:8001/predict'; // replace with your API endpoint
+let taxiFareApiUrl = 'https://taxifare.lewagon.ai/predict'; // replace with your API endpoint
 const centralCoordinates = [-74.00597, 40.71427]; // starting position [lng, lat]
 
 if (window.location.href.includes('https://taxifare.lewagon.com')) {
   taxiFareApiUrl = 'https://taxifare.lewagon.ai/predict';
 }
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoia3Jva3JvYiIsImEiOiJja2YzcmcyNDkwNXVpMnRtZGwxb2MzNWtvIn0.69leM_6Roh26Ju7Lqb2pwQ';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZnJlY2VsNTkiLCJhIjoiY2xmbWRwcnVvMGIwZTNxcnY2Y25hcDdvZCJ9.vT_9JQjpfmKxcv-xBw69OQ';
 
 const displayMap = (start, stop) => {
   const map = new mapboxgl.Map({
@@ -16,7 +16,7 @@ const displayMap = (start, stop) => {
   });
 
   function getRoute(end) {
-    var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
+    var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToke;
 
     var req = new XMLHttpRequest();
     req.open('GET', url, true);
@@ -219,6 +219,12 @@ const predict = () => {
     });
   }
 };
+
+
+// script.js
+
+
+
 
 displayMap();
 pickupAutocomplete();
